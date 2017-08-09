@@ -20,6 +20,12 @@ set_git $passfile
 
 if [[ -f $passfile ]]; then
     local file_contents=`$GPG -d "${GPG_OPTS[@]}" "$passfile"`
+
+    local header=`echo "$file_contents" | head -n 1`
+    if [[ "$header" != "# pass-botp" ]]; then
+        die "Error: $passfile needs pass-botp header '# pass-botp'"
+    fi
+
     local backup_code=`echo "$file_contents" | grep -m 1 "^[^#;]"`
 
     if [[ -z "$backup_code" ]]; then
