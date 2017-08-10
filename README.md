@@ -54,3 +54,7 @@ Simply add `-c` or `--clip`
 $ pass botp -c backup_codes
 Copied Backup code for backup_codes to clipboard. Will clear in X seconds.
 ```
+## Install
+
+- For Arch Linux users there is a package available in the [AUR](https://aur.archlinux.org/packages/pass-botp/)
+- For everyone else, simply drop `botp.bash` into your pass extensions directory. E.g. `/usr/lib/password-store/extensions/`
